@@ -12,11 +12,13 @@ import kata4.view.MailHistogramBuilder;
  * @author tanay
  */
 public class Main {
-
-    
+    static List<Mail> ListaMail;
+    static Histogram builder;
+    static HistogramDisplay histoDisplay;
     public static void main(String[] args) {
-        List<Mail> ListaMail=new MailListReader().read("emails.txt");
-        Histogram builder=new MailHistogramBuilder().build(ListaMail);
-        new HistogramDisplay("Histogram...",builder).execute();
+        ListaMail=new MailListReader().read("emails.txt");
+        builder=new MailHistogramBuilder().build(ListaMail);
+        histoDisplay=new HistogramDisplay("Histogram...",builder);
+        histoDisplay.execute();
         }
     }
